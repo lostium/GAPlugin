@@ -43,7 +43,7 @@
 
         <source-file src="src/ios/GAPlugin.m" />
         <source-file src="src/ios/libGoogleAnalyticsServices.a" framework="true" />
-
+        <header-file src="src/ios/GAIDictionaryBuilder.h" />
         <header-file src="src/ios/GAIEcommerceFields.h" />
         <header-file src="src/ios/GAIEcommerceProduct.h" />
         <header-file src="src/ios/GAIEcommerceProductAction.h" />
