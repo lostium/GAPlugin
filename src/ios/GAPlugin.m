@@ -28,8 +28,10 @@
 	
 	inited = YES;
 	
-	[tracker set:kGAISessionControl
-				 value:@"start"];
+    GAIDictionaryBuilder *builder = [GAIDictionaryBuilder createScreenView];
+    [builder set:@"start" forKey:kGAISessionControl];
+    [tracker set:kGAIScreenName value:@"Home"];
+    [tracker send:[builder build]];
 	
 	[self successWithMessage:[NSString stringWithFormat:@"initGA: accountID = %@; Interval = %d seconds",accountID, dispatchPeriod] toID:callbackId];
 }
@@ -77,7 +79,7 @@
 	{
 		id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
 		[tracker set:kGAIScreenName value:pageURL];
-		[tracker send:[[GAIDictionaryBuilder createAppView] build]];
+		[tracker send:[[GAIDictionaryBuilder createScreenView] build]];
 		
 		[self successWithMessage:[NSString stringWithFormat:@"trackPage: url = %@", pageURL] toID:callbackId];
 	}
